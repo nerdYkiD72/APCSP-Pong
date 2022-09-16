@@ -1,0 +1,56 @@
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    border-radius: 0.5rem;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+}
+
+body {
+    background-color: gray;
+}
+
+html {
+    background-color: gray;
+}
+
+.restart-button {
+    margin-top: 1rem;
+    text-align: center;
+    margin-left: auto;
+    min-height: 40px;
+}
+
+.scores-list {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+
+
+
+/* Scroll 5 */
+.sc5::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+.sc5::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sc5::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(45deg, #00aeff, #a68eff);
+    border-radius: 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, .12) 0 3px 13px 1px;
+}
