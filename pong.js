@@ -16,6 +16,8 @@ let gameOver = false;
 let debug = false;
 let bouncedOffPaddle = false;
 let scoreList = [];
+let mouseMovement = true;
+let paddleX = WINDOW_WIDTH / 2;
 
 
 
@@ -41,7 +43,20 @@ function draw() {
     // Get cords to draw the paddle and keep the mouse centered.
     // Also make sure to keep the paddle inside the play area.
 
-    let paddleX = mouseX;
+    if (mouseMovement) {
+        paddleX = mouseX;
+    } else {
+        if (keyIsDown(LEFT_ARROW)) {
+            paddleX -= 7;
+            if (paddleX < 55) paddleX = 55;
+        } else if (keyIsDown(RIGHT_ARROW)) {
+            paddleX += 7;
+            if (paddleX > WINDOW_WIDTH - 55) paddleX = WINDOW_WIDTH - 55;
+        }
+    }
+
+
+
     if (mouseX < 55) {
         paddleX = 55;
     } else if (mouseX >= (WINDOW_WIDTH - 55)) {
@@ -111,11 +126,30 @@ function draw() {
     }
 }
 
-let keysPressed = [];
-let keyDown = false;
 
-function keyReleased() {
-    console.log(keyCode);
+
+
+
+const LEFT_ARROW = 37;
+const RIGHT_ARROW = 39;
+
+function keyPressed() {
+    // console.log(keyCode);
+
+    if (keyCode == LEFT_ARROW || keyCode == RIGHT_ARROW) {
+        mouseMovement = false;
+    }
+    if (!mouseMovement) {
+        if (keyCode == LEFT_ARROW) {
+            paddleX--;
+        } else if (keyCode == RIGHT_ARROW) {
+            paddleX++;
+        }
+    }
+}
+
+function mouseMoved() {
+    mouseMovement = true;
 }
 
 
@@ -184,4 +218,3 @@ function makeUL(array) {
     // Finally, return the constructed list:
     return list;
 }
-
